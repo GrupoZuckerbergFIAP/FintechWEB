@@ -26,6 +26,13 @@ public class Usuario {
 	}
 	
 	
+	public Usuario(String email, String senha) {
+		super();
+		this.email = email;
+		this.senha = senha;
+	}
+	
+	
 
 	public Usuario(String email, String senha, String cpf, String nome, int telefone,
 			Calendar dataDeNascimento, String genero) {

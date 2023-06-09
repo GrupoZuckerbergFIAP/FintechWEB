@@ -14,8 +14,8 @@ import br.com.fiap.fintech.exception.EmailException;
 public class EmailBO {
 
 	public void enviarEmail(String destinatario, String assunto, String mensagem) throws EmailException{
-		final String username = "email@gmail.com";
-		final String password = "senha";
+		final String username = "felipej.domingues@gmail.com";
+		final String password = "tel979526197";
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");

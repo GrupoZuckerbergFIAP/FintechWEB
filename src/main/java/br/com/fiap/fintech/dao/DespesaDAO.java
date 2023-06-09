@@ -6,7 +6,7 @@ import br.com.fiap.fintech.exception.DBException;
 
 public interface DespesaDAO {
 	
-void cadastrar(Despesa despesa) throws DBException;
+	void cadastrar(Despesa despesa) throws DBException;
 	
 	void editar(Despesa despesa)throws DBException;
 	

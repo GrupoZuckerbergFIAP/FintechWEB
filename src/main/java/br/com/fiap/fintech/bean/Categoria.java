@@ -19,6 +19,18 @@ public class Categoria {
 		this.nomeTabela = nomeTabela;
 		this.descricao = descricao;
 	}
+	
+	public Categoria(int codigo, String descricao) {
+		super();
+		this.codigo = codigo;
+		this.descricao = descricao;
+	}
+	
+	
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 
 	public int getCodigo() {
 		return codigo;

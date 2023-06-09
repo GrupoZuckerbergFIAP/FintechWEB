@@ -27,7 +27,7 @@ public class DAOFactory {
 	public static ObjetivoFinanceiroDAO getFinanceiroDAO() {
 		return new OracleObjetivoFinanceiroDAO();
 	}
-	public static ReceitaDAO getCReceitaDAO() {
+	public static ReceitaDAO getReceitaDAO() {
 		return new OracleReceitaDAO();
 	}
 	public static UsuarioDAO getUsuarioDAO() {

@@ -22,8 +22,7 @@ public class Cartao {
 	
 	private Usuario usuario;
 
-	public Cartao(int codigo, String nome, double numero, Calendar dataDeVencimento, String bandeira, int cvv,
-			Categoria categoria, String cpfTitular) {
+	public Cartao(int codigo, String nome, double numero, Calendar dataDeVencimento, String bandeira, int cvv, String cpfTitular) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
