@@ -129,7 +129,7 @@ public class OracleCartaoDAO implements CartaoDAO{
 				Calendar dataVencimento = Calendar.getInstance();
 				dataVencimento.setTimeInMillis(data.getTime());
 				String bandeira = rs.getString("DS_BANDEIRA");
-				int cvv = rs.getInt("NR_BANDEIRA");
+				int cvv = rs.getInt("NR_CVV");
 				String cpftitular = rs.getString("DS_CPF_TITULAR");
 				int cdcategoria = rs.getInt("CD_CATEGORIA");
 				String dscategoria = rs.getString("DS_CATEGORIA");
@@ -171,7 +171,7 @@ public class OracleCartaoDAO implements CartaoDAO{
 				Calendar dataVencimento = Calendar.getInstance();
 				dataVencimento.setTimeInMillis(data.getTime());
 				String bandeira = rs.getString("DS_BANDEIRA");
-				int cvv = rs.getInt("NR_BANDEIRA");
+				int cvv = rs.getInt("NR_CVV");
 				String cpftitular = rs.getString("DS_CPF_TITULAR");
 				int cdcategoria = rs.getInt("CD_CATEGORIA");
 				String dscategoria = rs.getString("DS_CATEGORIA");

@@ -23,7 +23,7 @@ public class ConnectionManager {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe", "system", "Tel43966451@");
+			connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe", "", "");
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		}

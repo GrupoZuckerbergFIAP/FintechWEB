@@ -85,21 +85,22 @@ public class CartaoServlet extends HttpServlet {
 			String nome = request.getParameter("nome");
 			double numero = Double.parseDouble(request.getParameter("numero"));
 			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-			Calendar vencimento = Calendar.getInstance();
-			vencimento.setTime(format.parse(request.getParameter("vencimento")));
+			Calendar dataDeVencimento = Calendar.getInstance();
+			dataDeVencimento.setTime(format.parse(request.getParameter("dataDeVencimento")));
 			String bandeira = request.getParameter("bandeira");
 			int cvv = Integer.parseInt(request.getParameter("cvv"));
 			int codigoCategoria = Integer.parseInt(request.getParameter("categoria"));
-			String cpf = request.getParameter("cpf");
+			String cpfTitular = request.getParameter("cpfTitular");
 			
 			Categoria categoria = new Categoria();
 			categoria.setCodigo(codigoCategoria);
 			
-			Cartao cartao = new Cartao(codigo, nome, numero, vencimento, bandeira, cvv, cpf);
+			Cartao cartao = new Cartao(codigo, nome, numero, dataDeVencimento, bandeira, cvv, cpfTitular);
 			cartao.setCategoria(categoria);
 			
 			cartaoDao.editar(cartao);
 			
+			request.setAttribute("msg", "Cartao atualizado!");
 		}catch (DBException db) {
 			db.printStackTrace();
 			request.setAttribute("erro", "Erro ao cadastrar");
@@ -107,13 +108,15 @@ public class CartaoServlet extends HttpServlet {
 			e.printStackTrace();
 			request.setAttribute("erro", "Por favor, valide os dados");
 		}
+		
+		listar(request,response);
 	}
 
 	private void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		int codigo = Integer.parseInt(request.getParameter("codigo"));
 		try {
 			cartaoDao.remover(codigo);
-			request.setAttribute("msg", "Produto removido!");
+			request.setAttribute("msg", "Cartão removido!");
 		} catch (DBException e) {
 			e.printStackTrace();
 			request.setAttribute("erro", "Erro ao atualizar");
@@ -147,7 +150,7 @@ public class CartaoServlet extends HttpServlet {
 		}
 		request.setAttribute("cartao", cartao);
 		carregarOpcoesCategoria(request);
-		request.getRequestDispatcher("edicao-produto.jsp").forward(request, response);
+		request.getRequestDispatcher("edicao-cartao.jsp").forward(request, response);
 	}
 
 	private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

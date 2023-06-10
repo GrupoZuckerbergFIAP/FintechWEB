@@ -107,7 +107,7 @@ public class OracleReceitaDAO implements ReceitaDAO{
 		ResultSet rs = null;
 		try {
 			conexao = ConnectionManager.getInstance().getConnection();
-			stmt = conexao.prepareStatement("SELECT * FROM TB_FINTECH_RECEITA INNER JOIN TB_FINTECH_CATEGORIA ON TB_FINTECH_RECEITA.CD_OBJETIVO = TB_FINTECH_CATEGORIA.CD_CATEGORIA WHERE TB_FINTECH_OBJETIVO.CD_OBJETIVO = ?");
+			stmt = conexao.prepareStatement("SELECT * FROM TB_FINTECH_RECEITA INNER JOIN TB_FINTECH_CATEGORIA ON TB_FINTECH_RECEITA.CD_CATEGORIA = TB_FINTECH_CATEGORIA.CD_CATEGORIA WHERE TB_FINTECH_RECEITA.CD_RECEITA = ?");
 			stmt.setInt(1, codigo);
 			rs = stmt.executeQuery();		
 			
@@ -147,7 +147,7 @@ public class OracleReceitaDAO implements ReceitaDAO{
 		ResultSet rs = null;
 		try {
 			conexao = ConnectionManager.getInstance().getConnection();
-			stmt = conexao.prepareStatement("SELECT * FROM TB_FINTECH_RECEITA INNER JOIN TB_FINTECH_CATEGORIA ON TB_FINTECH_RECEITA.CD_OBJETIVO = TB_FINTECH_CATEGORIA.CD_CATEGORIA");
+			stmt = conexao.prepareStatement("SELECT * FROM TB_FINTECH_RECEITA INNER JOIN TB_FINTECH_CATEGORIA ON TB_FINTECH_RECEITA.CD_CATEGORIA = TB_FINTECH_CATEGORIA.CD_CATEGORIA");
 			rs = stmt.executeQuery();
 			
 			while(rs.next()) {

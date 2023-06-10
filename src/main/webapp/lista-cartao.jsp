@@ -31,24 +31,24 @@
 				<th>Categoria</th>
 				<th></th>	
 			</tr>
-			<c:forEach items="${cartoes}" var="c">
+			<c:forEach items="${cartoes }" var="cr">
 				<tr>
-					<td>${c.nome}</td>
-					<td>${c.numero}</td>
+					<td>${cr.nome}</td>
+					<td>${cr.numero}</td>
 					<td>
-						<fmt:formatDate value="${c.vencimento.time }" pattern="dd/MM/yyyy"/>
+						<fmt:formatDate value="${cr.dataDeVencimento.time }" pattern="dd/MM/yyyy"/>
 					</td>
-					<td>${c.bandeira}</td>
-					<td>${c.cvv}</td>
-					<td>${c.cpf}</td>
-					<td>${c.categoria.nome}</td>
+					<td>${cr.bandeira}</td>
+					<td>${cr.cvv}</td>
+					<td>${cr.cpfTitular}</td>
+					<td>${cr.categoria.descricao}</td>
 					<td>
 						<c:url value="cartao" var="link">
 							<c:param name="acao" value="abrir-form-edicaoCartao"/>
-							<c:param name="codigo" value="${c.codigo }"/>
+							<c:param name="codigo" value="${cr.codigo }"/>
 						</c:url>
 						<a href="${link}" class="btn btn-primary btn-xs">Editar</a>
-						<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#excluirModal" onclick="codigoExcluir.value = ${c.codigo}">
+						<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#excluirModal" onclick="codigoExcluir.value = ${cr.codigo}">
   							Excluir
 						</button>
 					</td>
@@ -70,11 +70,11 @@
         </button>
       </div>
       <div class="modal-body">
-        		Deseja realmente excluir o produto?
+        		Deseja realmente excluir o cartao?
       </div>
       <div class="modal-footer">
-      	<form action="produto" method="post">
-      		<input type="hidden" name="acao" value="excluir">
+      	<form action="cartao" method="post">
+      		<input type="hidden" name="acao" value="excluirCartao">
       		<input type="hidden" name="codigo" id="codigoExcluir">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 	        <button type="submit" class="btn btn-danger">Excluir</button>

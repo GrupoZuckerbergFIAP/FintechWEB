@@ -106,7 +106,8 @@ public class OracleDespesaDAO implements DespesaDAO{
 		ResultSet rs = null;
 		try {
 			conexao = ConnectionManager.getInstance().getConnection();
-			stmt = conexao.prepareStatement("SELECT * FROM TB_FINTECH_DESPESA INNER JOIN TB_FINTECH_CATEGORIA ON TB_FINTECH_DESPESA.CD_OBJETIVO = TB_FINTECH_DESPESA.CD_CATEGORIA WHERE TB_FINTECH_OBJETIVO.CD_OBJETIVO = ?");
+			stmt = conexao.prepareStatement("SELECT * FROM TB_FINTECH_DESPESA INNER JOIN TB_FINTECH_CATEGORIA ON TB_FINTECH_DESPESA.CD_CATEGORIA = TB_FINTECH_CATEGORIA.CD_CATEGORIA WHERE TB_FINTECH_DESPESA.CD_DESPESA = ?");
+			stmt.setInt(1, codigo);
 			rs = stmt.executeQuery();		
 			
 			if(rs.next()) {
@@ -145,7 +146,7 @@ public class OracleDespesaDAO implements DespesaDAO{
 		ResultSet rs = null;
 		try {
 			conexao = ConnectionManager.getInstance().getConnection();
-			stmt = conexao.prepareStatement("SELECT * FROM TB_FINTECH_DESPESA INNER JOIN TB_FINTECH_CATEGORIA ON TB_FINTECH_DESPESA.CD_OBJETIVO = TB_FINTECH_CATEGORIA.CD_CATEGORIA");
+			stmt = conexao.prepareStatement("SELECT * FROM TB_FINTECH_DESPESA INNER JOIN TB_FINTECH_CATEGORIA ON TB_FINTECH_DESPESA.CD_CATEGORIA = TB_FINTECH_CATEGORIA.CD_CATEGORIA");
 			rs = stmt.executeQuery();
 			
 			while(rs.next()) {
